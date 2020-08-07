@@ -32,6 +32,9 @@ const Anime = (props) => {
     getAnime(params.mal_id);
     console.log("anime-load:");
     console.log(trailer_url)
+    console.log(title)
+    console.log(aired?.string)
+
   }, []);
 
   useEffect(() => {
