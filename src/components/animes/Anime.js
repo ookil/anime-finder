@@ -1,14 +1,16 @@
 import React, { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import Characters from "./characters/Characters";
+import Spinner from "../utilities/spinner/Spinner";
 
 const Anime = (props) => {
-  const [thumbnail_id, setThumbnail_id] = useState("");
-
   const {
     getAnime,
     anime,
+    characters,
+    getAnimeCharacters,
     match: { params },
+    loading,
   } = props;
 
   const {
@@ -28,31 +30,30 @@ const Anime = (props) => {
     aired,
   } = anime;
 
-  useEffect(() => {
-    getAnime(params.mal_id);
-    console.log("anime-load:");
-    console.log(trailer_url)
-    console.log(title)
-    console.log(aired?.string)
-
+  /* useEffect(() => {
+    const fetchData = async () => {
+      await getAnime(params.mal_id);
+      const thumbnailUrl = getThumbnail(trailer_url);
+    };
+    fetchData();
   }, []);
-
-  useEffect(() => {
-    console.log('thumbnail')
-    getThumbnail(trailer_url);
-  }, []);
-
 
   const getThumbnail = (url) => {
     if (url !== "") {
-      console.log("url-load");
-      console.log(url);
-      /*       const x = url.split("/")
-      const video_id = x[4].split("?")
-  
-      setThumbnail_id(video_id[0]) */
+      const x = url.split("/");
+      const video_id = x[4].split("?");
+
+      return `http://i3.ytimg.com/vi/${video_id[0]}/mqdefault.jpg`;
     }
-  };
+  }; */
+
+  useEffect(() => {
+    getAnime(params.mal_id);
+    getAnimeCharacters(params.mal_id);
+    // eslint-disable-next-line
+  }, []);
+
+  if (loading) return <Spinner />;
 
   return (
     <div>
@@ -87,7 +88,7 @@ const Anime = (props) => {
               </p>
               <p>
                 <strong>Aired: </strong>
-                {}
+                {aired?.string}
               </p>
               <p>
                 <strong>Premiered: </strong>
@@ -111,10 +112,25 @@ const Anime = (props) => {
               </div>
             </div>
             <div>
-              <a href=""></a>
+              <a href={trailer_url}>
+                <img src="" alt="" />
+              </a>
             </div>
           </div>
         </div>
+        {synopsis && (
+          <div style={animeInfo}>
+            <h3 style={{ margin: "10px 0" }}>Synopsis</h3>
+            <div>{synopsis}</div>
+          </div>
+        )}
+        {background && (
+          <div style={animeInfo}>
+            <h3 style={{ margin: "10px 0" }}>Background</h3>
+            <div>{background}</div>
+          </div>
+        )}
+        <Characters characters={characters} />
       </Fragment>
     </div>
   );
@@ -125,6 +141,13 @@ const animeStyle = {
   gridTemplateColumns: "auto 2fr 1fr",
   gridColumnGap: "1rem",
   fontFamily: "Roboto Mono",
+  borderBottom: "1px dashed #B8B8B8",
+  paddingBottom: "10px",
+};
+
+const animeInfo = {
+  paddingBottom: "20px",
+  borderBottom: "1px dashed #B8B8B8",
 };
 
 export default Anime;

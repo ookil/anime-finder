@@ -10,19 +10,38 @@ import axios from "axios";
 function App() {
   const [animes, setAnimes] = useState([]);
   const [anime, setAnime] = useState({});
+  const [characters, setCharacters] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const searchAnimes = async (text) => {
+    setLoading(true);
+
     const res = await axios.get(
       `http://api.jikan.moe/v3/search/anime?q=${text}`
     );
 
     setAnimes(res.data.results);
+    setLoading(false);
   };
 
   const getAnime = async (mal_id) => {
+    setLoading(true);
+
     const res = await axios.get(`http://api.jikan.moe/v3/anime/${mal_id}`);
 
     setAnime(res.data);
+    setLoading(false);
+  };
+
+  const getAnimeCharacters = async (mal_id) => {
+    setLoading(true);
+
+    const res = await axios.get(
+      `http://api.jikan.moe/v3/anime/${mal_id}/characters_staff`
+    );
+
+    setCharacters(res.data.characters);
+    setLoading(false);
   };
 
   return (
@@ -37,7 +56,7 @@ function App() {
               render={(props) => (
                 <Fragment>
                   <Search searchAnimes={searchAnimes} />
-                  <Animes animes={animes} />
+                  <Animes animes={animes} loading={loading} />
                 </Fragment>
               )}
             />
@@ -45,7 +64,14 @@ function App() {
               exact
               path="/anime/:mal_id"
               render={(props) => (
-                <Anime {...props} getAnime={getAnime} anime={anime} />
+                <Anime
+                  {...props}
+                  getAnime={getAnime}
+                  anime={anime}
+                  getAnimeCharacters={getAnimeCharacters}
+                  characters={characters}
+                  loading={loading}
+                />
               )}
             />
           </Switch>
