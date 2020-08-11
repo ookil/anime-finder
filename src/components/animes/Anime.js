@@ -1,9 +1,11 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Characters from "./characters/Characters";
 import Spinner from "../utilities/spinner/Spinner";
 
 const Anime = (props) => {
+  const [data, setData] = useState(false);
+
   const {
     getAnime,
     anime,
@@ -48,20 +50,34 @@ const Anime = (props) => {
   }; */
 
   useEffect(() => {
+    console.log("useEffect");
     getAnime(params.mal_id);
     getAnimeCharacters(params.mal_id);
     // eslint-disable-next-line
   }, []);
+  console.log("anime");
 
-  if (loading) return <Spinner />;
+  if (loading) {
+    return (
+      <Fragment>
+        <Spinner /> {console.log("spinner")}
+      </Fragment>
+    );
+  } else {
+    showTrailer();
+  }
+
+  const showTrailer = () => {
+    console.log('hey');
+  }
 
   return (
     <div>
+      {console.log("return")}
       <Fragment>
         <Link to="/" className="btn btn-dark mb-1">
           Back to search
         </Link>
-
         <div style={animeStyle}>
           <div>
             <img

@@ -26,11 +26,14 @@ function App() {
 
   const getAnime = async (mal_id) => {
     setLoading(true);
+    console.log("getAnime Load");
 
     const res = await axios.get(`http://api.jikan.moe/v3/anime/${mal_id}`);
 
     setAnime(res.data);
     setLoading(false);
+    console.log("getAnime Loaded");
+
   };
 
   const getAnimeCharacters = async (mal_id) => {
