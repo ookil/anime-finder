@@ -40,19 +40,14 @@ const Anime = ({ match: { params } }) => {
     });
   }, [dispatch, params.mal_id]);
 
-  const showTrailer = (url) => {
-    const video_id = getVideoId(url);
-    return `http://i3.ytimg.com/vi/${video_id}/mqdefault.jpg`;
-  };
-
-  const getVideoId = (url) => {
-    if (url !== undefined) {
-      console.log(url);
-      const x = url.split("/");
+  useEffect(() => {
+    if (trailer_url && trailer_url !== undefined) {
+      console.log(trailer_url);
+      const x = trailer_url.split("/");
       const video_id = x[4].split("?");
-      return video_id[0];
+      setVideoId(video_id[0]);
     }
-  };
+  }, [trailer_url]);
 
   if (loading)
     return (
@@ -120,7 +115,7 @@ const Anime = ({ match: { params } }) => {
               <div className="thumbnail--wrapper">
                 <a onClick={() => setOpen(true)}>
                   <img
-                    src={showTrailer(trailer_url)}
+                    src={`http://i3.ytimg.com/vi/${videoId}/mqdefault.jpg`}
                     alt="Trailer Thumbnail"
                     style={{ maxWidth: "250px" }}
                   />
@@ -147,7 +142,7 @@ const Anime = ({ match: { params } }) => {
       <ModalVideo
         channel="youtube"
         isOpen={isOpen}
-        videoId={getVideoId(trailer_url)}
+        videoId={videoId}
         onClose={() => setOpen(false)}
       />
     </div>
