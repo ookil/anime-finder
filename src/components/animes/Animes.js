@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import AnimeItem from "./AnimeItem";
 import Spinner from "../utilities/spinner/Spinner";
+import AnimeContext from "../../context/animes/animeContext";
 
-const Animes = ({ animes, loading }) => {
+const Animes = () => {
+  const { animes, loading } = useContext(AnimeContext);
+
   if (loading) {
     return <Spinner />;
   } else {

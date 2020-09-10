@@ -1,79 +1,68 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import Characters from "./characters/Characters";
+import Characters from "../characters/Characters";
 import Spinner from "../utilities/spinner/Spinner";
+import AnimeContext from "../../context/animes/animeContext";
+import { getAnimeAndCharacters } from "../../context/animes/actions";
+import { GET_ANIME_AND_CHARACTERS, SET_LOADING } from "../../context/types";
+import ModalVideo from "react-modal-video";
 
-const Anime = (props) => {
-  const [data, setData] = useState(false);
+const Anime = ({ match: { params } }) => {
+  const [isOpen, setOpen] = useState(false);
+  const [videoId, setVideoId] = useState("");
 
   const {
-    getAnime,
-    anime,
+    anime: {
+      title,
+      title_english,
+      episodes,
+      image_url,
+      score,
+      status,
+      trailer_url,
+      synopsis,
+      type,
+      background,
+      premiered,
+      duration,
+      rating,
+      aired,
+    },
+    dispatch,
     characters,
-    getAnimeCharacters,
-    match: { params },
     loading,
-  } = props;
-
-  const {
-    title,
-    title_english,
-    episodes,
-    image_url,
-    score,
-    status,
-    trailer_url,
-    synopsis,
-    type,
-    background,
-    premiered,
-    duration,
-    rating,
-    aired,
-  } = anime;
-
-  /* useEffect(() => {
-    const fetchData = async () => {
-      await getAnime(params.mal_id);
-      const thumbnailUrl = getThumbnail(trailer_url);
-    };
-    fetchData();
-  }, []);
-
-  const getThumbnail = (url) => {
-    if (url !== "") {
-      const x = url.split("/");
-      const video_id = x[4].split("?");
-
-      return `http://i3.ytimg.com/vi/${video_id[0]}/mqdefault.jpg`;
-    }
-  }; */
+  } = useContext(AnimeContext);
 
   useEffect(() => {
-    console.log("useEffect");
-    getAnime(params.mal_id);
-    getAnimeCharacters(params.mal_id);
-    // eslint-disable-next-line
-  }, []);
-  console.log("anime");
+    dispatch({ type: SET_LOADING });
+    getAnimeAndCharacters(params.mal_id).then((res) => {
+      dispatch({ type: GET_ANIME_AND_CHARACTERS, payload: res });
+    });
+  }, [dispatch, params.mal_id]);
 
-  if (loading) {
+  const showTrailer = (url) => {
+    const video_id = getVideoId(url);
+    return `http://i3.ytimg.com/vi/${video_id}/mqdefault.jpg`;
+  };
+
+  const getVideoId = (url) => {
+    if (url !== undefined) {
+      console.log(url);
+      const x = url.split("/");
+      const video_id = x[4].split("?");
+      return video_id[0];
+    }
+  };
+
+  if (loading)
     return (
       <Fragment>
-        <Spinner /> {console.log("spinner")}
+        <Spinner />
       </Fragment>
     );
-  } else {
-    showTrailer();
-  }
-
-  const showTrailer = () => {
-    console.log('hey');
-  }
 
   return (
     <div>
-      {console.log("return")}
       <Fragment>
         <Link to="/" className="btn btn-dark mb-1">
           Back to search
@@ -120,18 +109,25 @@ const Anime = (props) => {
               </p>
             </div>
           </div>
-          <div style={{ justifySelf: "center" }}>
+          <div className="d-flex flex-col align-items-center">
             <div className="score--wrapper">
               <div className="score bg-success">
                 <div className="score-text">SCORE</div>
                 <h3 className="score-number">{score}</h3>
               </div>
             </div>
-            <div>
-              <a href={trailer_url}>
-                <img src="" alt="" />
-              </a>
-            </div>
+            {trailer_url !== null && (
+              <div className="thumbnail--wrapper">
+                <a onClick={() => setOpen(true)}>
+                  <img
+                    src={showTrailer(trailer_url)}
+                    alt="Trailer Thumbnail"
+                    style={{ maxWidth: "250px" }}
+                  />
+                  <i className="far fa-play-circle fa-2x play"></i>
+                </a>
+              </div>
+            )}
           </div>
         </div>
         {synopsis && (
@@ -148,6 +144,12 @@ const Anime = (props) => {
         )}
         <Characters characters={characters} />
       </Fragment>
+      <ModalVideo
+        channel="youtube"
+        isOpen={isOpen}
+        videoId={getVideoId(trailer_url)}
+        onClose={() => setOpen(false)}
+      />
     </div>
   );
 };
