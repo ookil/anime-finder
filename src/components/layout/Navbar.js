@@ -10,6 +10,11 @@ const Navbar = ({ icon, title }) => {
           <i className={icon} /> {title}
         </Link>
       </h1>
+      <ul>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
     </nav>
   );
 };
@@ -20,8 +25,8 @@ Navbar.defaultProps = {
 };
 
 Navbar.propTypes = {
-    title: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
-}
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+};
 
 export default Navbar;
