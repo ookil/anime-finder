@@ -2,8 +2,6 @@ import {
   SEARCH_ANIMES,
   GET_ANIME_AND_CHARACTERS,
   CLEAR_ANIMES,
-  SET_ALERT,
-  REMOVE_ALERT,
   SET_LOADING,
 } from "../types";
 

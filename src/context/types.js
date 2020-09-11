@@ -2,5 +2,3 @@ export const SEARCH_ANIMES = "SEARCH_ANIMES";
 export const GET_ANIME_AND_CHARACTERS = "GET_ANIME_AND_CHARACTERS";
 export const CLEAR_ANIMES = "CLEAR_ANIMES";
 export const SET_LOADING = "SET_LOADING";
-export const SET_ALERT = "SET_ALERT";
-export const REMOVE_ALERT = "REMOVE_ALERT";

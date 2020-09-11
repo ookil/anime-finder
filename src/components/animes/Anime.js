@@ -42,7 +42,6 @@ const Anime = ({ match: { params } }) => {
 
   useEffect(() => {
     if (trailer_url && trailer_url !== undefined) {
-      console.log(trailer_url);
       const x = trailer_url.split("/");
       const video_id = x[4].split("?");
       setVideoId(video_id[0]);
@@ -62,15 +61,15 @@ const Anime = ({ match: { params } }) => {
         <Link to="/" className="btn btn-dark mb-1">
           Back to search
         </Link>
-        <div style={animeStyle}>
-          <div>
+        <div className="d-flex flex-wrap">
+          <div className="anime-img">
             <img
               src={image_url}
               alt="anime cover"
               style={{ maxHeight: "350px" }}
             />
           </div>
-          <div>
+          <div className="anime-description">
             <h2 className="anime-title">{title_english}</h2>
             <p className="anime-subtitle">{title}</p>
             <div className="d-flex flex-col " style={{ height: "100%" }}>
@@ -104,7 +103,7 @@ const Anime = ({ match: { params } }) => {
               </p>
             </div>
           </div>
-          <div className="d-flex flex-col align-items-center">
+          <div className="score--video ">
             <div className="score--wrapper">
               <div className="score bg-success">
                 <div className="score-text">SCORE</div>
@@ -113,14 +112,14 @@ const Anime = ({ match: { params } }) => {
             </div>
             {trailer_url !== null && (
               <div className="thumbnail--wrapper">
-                <a onClick={() => setOpen(true)}>
+                <div onClick={() => setOpen(true)}>
                   <img
                     src={`http://i3.ytimg.com/vi/${videoId}/mqdefault.jpg`}
                     alt="Trailer Thumbnail"
                     style={{ maxWidth: "250px" }}
                   />
                   <i className="far fa-play-circle fa-2x play"></i>
-                </a>
+                </div>
               </div>
             )}
           </div>
@@ -149,14 +148,6 @@ const Anime = ({ match: { params } }) => {
   );
 };
 
-const animeStyle = {
-  display: "grid",
-  gridTemplateColumns: "auto 2fr 1fr",
-  gridColumnGap: "1rem",
-  fontFamily: "Roboto Mono",
-  borderBottom: "1px dashed #B8B8B8",
-  paddingBottom: "10px",
-};
 
 const animeInfo = {
   paddingBottom: "20px",
