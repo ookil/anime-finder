@@ -61,7 +61,7 @@ const Anime = ({ match: { params } }) => {
         <Link to="/" className="btn btn-dark mb-1">
           Back to search
         </Link>
-        <div className="d-flex flex-wrap">
+        <div className="d-flex flex-wrap "style={animeInfo}>
           <div className="anime-img">
             <img
               src={image_url}
@@ -87,7 +87,7 @@ const Anime = ({ match: { params } }) => {
               </p>
               <p>
                 <strong>Aired: </strong>
-                {aired?.string}
+                {aired && aired.string}
               </p>
               <p>
                 <strong>Premiered: </strong>
