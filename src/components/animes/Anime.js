@@ -104,12 +104,12 @@ const Anime = ({ match: { params } }) => {
             </div>
           </div>
           <div className="score--video ">
-            <div className="score--wrapper">
+            {score && (<div className="score--wrapper">
               <div className="score bg-success">
                 <div className="score-text">SCORE</div>
                 <h3 className="score-number">{score}</h3>
               </div>
-            </div>
+            </div>)}
             {trailer_url !== null && (
               <div className="thumbnail--wrapper">
                 <div onClick={() => setOpen(true)}>
