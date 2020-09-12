@@ -104,7 +104,7 @@ const Anime = ({ match: { params } }) => {
             </div>
           </div>
           <div className="score--video ">
-            {score && (<div className="score--wrapper">
+            {score !== null && (<div className="score--wrapper">
               <div className="score bg-success">
                 <div className="score-text">SCORE</div>
                 <h3 className="score-number">{score}</h3>
