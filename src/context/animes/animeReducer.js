@@ -3,6 +3,7 @@ import {
   GET_ANIME_AND_CHARACTERS,
   CLEAR_ANIMES,
   SET_LOADING,
+  GET_SEASONAL_ANIME
 } from "../types";
 
 export default (state, action) => {
@@ -12,6 +13,12 @@ export default (state, action) => {
         ...state,
         loading: true,
       };
+    case GET_SEASONAL_ANIME:
+      return {
+        ...state,
+        seasonalAnime: action.payload,
+        loading: false
+      }  
     case GET_ANIME_AND_CHARACTERS:
       return {
         ...state,

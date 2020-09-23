@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import AnimeContext from "../../context/animes/animeContext";
 import { searchAnimes } from "../../context/animes/actions";
-import { SEARCH_ANIMES, SET_LOADING, CLEAR_ANIMES } from "../../context/types";
+import { SEARCH_ANIMES, SET_LOADING } from "../../context/types";
 
 const Search = () => {
-  const { dispatch, animes } = useContext(AnimeContext);
+  const { dispatch} = useContext(AnimeContext);
 
   const [text, setText] = useState("");
 
@@ -30,11 +30,6 @@ const Search = () => {
           onChange={onChange}
           id="search-bar"
         />
-        {/* <input
-          type="submit"
-          value="Search"
-          className="btn btn-block btn-dark"
-        /> */}
       </form>
     
   );

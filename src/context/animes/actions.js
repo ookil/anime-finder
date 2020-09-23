@@ -4,6 +4,14 @@ const jikan = axios.create({
   baseURL: "https://api.jikan.moe/v3",
 });
 
+export const getSeasonalAnime = async (year, season) => {
+  
+  const res = await jikan.get(`season/${year}/${season}`)
+
+  return res.data.anime
+
+}
+
 export const searchAnimes = async (text) => {
   const res = await jikan.get(`/search/anime?q=${text}`);
 

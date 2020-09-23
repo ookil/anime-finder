@@ -3,7 +3,7 @@
 
 /* Global Styles */
 
-$primary-color: #1B1B1B;
+$primary-color: #1b1b1b;
 $dark-color: #333333;
 $light-color: #f4f4f4;
 $danger-color: #dc3545;
@@ -36,10 +36,15 @@ ul {
 
 /* Utilities */
 .container {
-  max-width: 1100px;
+  width: 95%;
+  max-width: 1250px;
   margin: 0 auto;
   overflow: hidden;
   padding: 1rem 2rem;
+
+  @media screen and (min-width: 992px) {
+    width: 85%;
+  }
 }
 
 .anime-description {
@@ -62,7 +67,8 @@ ul {
   background-image: linear-gradient(180deg, rgba(44, 44, 44, 0) 0%, $primary-color 65.96%),
     url("./images/Anime-Landscape-Backgrounds.jpg");
   height: 900px;
-  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* Text Styles*/
@@ -81,6 +87,10 @@ ul {
 .lead {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+}
+
+.small {
+  font-size: 0.7em;
 }
 
 .text-center {
@@ -199,27 +209,70 @@ ul {
 /* Cards */
 .card {
   border-radius: 15px;
-  border: 1px rgba(0, 0, 0, 0.123) dashed;
   margin: 0.7rem 0;
   height: 260px;
   width: 150px;
   margin: 15px;
   overflow: hidden;
   background-color: white;
+
+  &:hover {
+    box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.2);
+  }
+
+  &--img {
+    height: 200px;
+  }
+
+  &--title {
+    padding: 5px;
+    height: 50px;
+    color: black;
+  }
 }
 
-.card:hover {
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.438);
+.card-carousel {
+  border-radius: 15px;
+  margin: 0.7rem 0;
+  height: 400px;
+  width: 260px;
+  margin: 15px;
+  overflow: hidden;
+  position: relative;
+  filter: drop-shadow(7px 8px 4px rgba(255, 255, 255, 0.25));
+
+  img {
+    height: 100%;
+  }
+
+  .text-overlay {
+    position: absolute;
+    left: 3.7%;
+    right: 3.7%;
+    bottom: 2.67%;
+    min-height: 120px;
+    padding: 0.6rem 0.8rem;
+    background: rgba(36, 36, 36, 0.8);
+    border-radius: 25px;
+    font-family: "Roboto Condensed";
+    overflow: hidden;
+  }
+
+  h4 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 26px;
+    letter-spacing: 0.02em;
+    position: relative;
+  }
 }
 
-.card--img {
-  height: 200px;
-}
-
-.card--title {
-  padding: 5px;
-  height: 50px;
-  color: black;
+.carousel-button-group {
+  position: absolute;
+  right: 20px;
+  top: calc(38.4px / 2 - 13px);
+  cursor: pointer;
 }
 
 .text-overflow {
@@ -372,7 +425,6 @@ button {
   width: 100%;
   top: 60px;
   right: 0;
-  
 }
 
 .dropdown-link {
