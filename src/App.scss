@@ -2,14 +2,13 @@
 @import "../node_modules/react-modal-video/scss/modal-video.scss";
 
 /* Global Styles */
-:root {
-  --primary-color: #dc3545;
-  --dark-color: #333333;
-  --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #3cc05b;
-  --blue-color: #3496bd;
-}
+
+$primary-color: #1B1B1B;
+$dark-color: #333333;
+$light-color: #f4f4f4;
+$danger-color: #dc3545;
+$success-color: #3cc05b;
+$blue-color: #3496bd;
 
 * {
   box-sizing: border-box;
@@ -21,17 +20,14 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #f1f1f1;
-  color: #333;
+  background-color: $primary-color;
+  background-repeat: no-repeat;
+  color: #fff;
 }
 
 a {
-  color: black;
+  color: inherit;
   text-decoration: none;
-}
-
-a:hover {
-  color: #666;
 }
 
 ul {
@@ -44,7 +40,6 @@ ul {
   margin: 0 auto;
   overflow: hidden;
   padding: 1rem 2rem;
-  background: white;
 }
 
 .anime-description {
@@ -53,6 +48,21 @@ ul {
   p {
     font-size: 16px;
   }
+}
+
+.non-link {
+  cursor: default;
+}
+
+.box-shadow {
+  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
+}
+
+.background-wrapper {
+  background-image: linear-gradient(180deg, rgba(44, 44, 44, 0) 0%, $primary-color 65.96%),
+    url("./images/Anime-Landscape-Backgrounds.jpg");
+  height: 900px;
+  overflow: hidden;
 }
 
 /* Text Styles*/
@@ -159,6 +169,22 @@ ul {
   margin-left: auto;
 }
 
+.ml-1 {
+  margin-left: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 1rem;
+}
+
+.ml-3 {
+  margin-left: 1.5rem;
+}
+
+.ml-4 {
+  margin-left: 2rem;
+}
+
 /* Center All */
 .all-center {
   display: flex;
@@ -217,10 +243,9 @@ ul {
 
 .btn {
   display: inline-block;
-  background: var(--light-color);
-  color: #333;
-  padding: 0.4rem 1.3rem;
-  font-size: 1rem;
+  color: #000000;
+  padding: 0.1rem 1.3rem;
+  font-size: 13px;
   border: none;
   cursor: pointer;
   margin-right: 0.5rem;
@@ -245,61 +270,19 @@ ul {
   margin-right: 0.2rem;
 }
 
-.btn-primary,
-.bg-primary,
-.badge-primary,
-.alert-primary {
-  background: var(--primary-color);
-  color: #fff;
+.btn-white-rounded {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  border-radius: 15px;
 }
 
-.btn-blue,
-.bg-blue,
-.badge-blue,
-.alert-blue {
-  background: var(--blue-color);
-  color: #fff;
-}
-
-.btn-light,
-.bg-light,
-.badge-light,
-.alert-light {
-  background: var(--light-color);
-  color: #333;
-}
-
-.btn-dark,
-.bg-dark,
-.badge-dark,
-.alert-dark {
-  background: var(--dark-color);
-  color: #fff;
-}
-
-.btn-danger,
-.bg-danger,
-.badge-danger,
-.alert-danger {
-  background: var(--danger-color);
-  color: #fff;
-}
-
-.btn-success,
-.bg-success,
-.badge-success,
-.alert-success {
-  background: var(--success-color);
-  color: #fff;
-}
-
-.btn-white,
-.bg-white,
-.badge-white,
-.alert-white {
-  background: #fff;
-  color: #333;
-  border: #ccc solid 1px;
+.btn-white-outline-rounded {
+  background: none;
+  border: 2px solid #ffffff;
+  color: white;
+  box-sizing: border-box;
+  border-radius: 15px;
 }
 
 .btn:hover {
@@ -312,14 +295,16 @@ ul {
 }
 
 /* Forms */
-input {
-  margin: 1.2rem 0;
-}
-
-.form-text {
-  display: block;
-  margin-top: 0.3rem;
-  color: #888;
+#search-bar {
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  margin: 10px 0;
+  width: 300px;
+  background-image: url("./images/iconfinder_search_172546.png");
+  background-position: 10px 0px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 40px;
 }
 
 input[type="text"],
@@ -328,11 +313,10 @@ input[type="password"],
 input[type="date"],
 select,
 textarea {
+  background: white;
   display: block;
-  width: 100%;
-  padding: 0.4rem;
-  font-size: 1.2rem;
-  border: 1px solid #ccc;
+  padding: 0.2rem;
+  font-size: 13px;
 }
 
 input[type="submit"],
@@ -345,24 +329,69 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem 2rem;
-  z-index: 1;
   width: 100%;
   opacity: 0.9;
+}
+
+.nav-banner {
+  padding: 0.7rem 2rem;
+  background: $primary-color;
+  box-shadow: -1px 5px 4px rgba(0, 0, 0, 0.35);
+  z-index: 1;
+  position: relative;
+}
+
+.nav-menu {
+  padding: 0.35rem 2rem;
+  background: rgba(223, 217, 217, 0.25);
+  backdrop-filter: blur(4px);
+  position: relative;
 }
 
 .navbar ul {
   display: flex;
 }
 
-.navbar a {
+.nav-menu li {
   color: #fff;
   padding: 0.45rem;
-  margin: 0 0.25rem;
 }
 
-.navbar a:hover {
-  color: var(--light-color);
+.dropdown-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-menu--dropdown {
+  top: 55px;
+  border-top: 2px solid white;
+}
+
+.mobile-menu--dropdown {
+  width: 100%;
+  top: 60px;
+  right: 0;
+  
+}
+
+.dropdown-link {
+  display: block;
+  padding: 0.5rem;
+  background: $primary-color;
+  width: 100%;
+
+  &:hover,
+  a:hover {
+    background: #fff;
+    color: $primary-color;
+  }
+}
+
+.dropdown-separator {
+  padding: 0.3rem 0.45rem;
+  background: rgb(209, 209, 209);
+  color: $primary-color;
 }
 
 .navbar .welcome span {

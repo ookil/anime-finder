@@ -20,30 +20,23 @@ const Search = () => {
   };
 
   return (
-    <div>
+    
       <form onSubmit={onSubmit} className="form">
         <input
           type="text"
           name="text"
-          placeholder="Search for anime..."
+          placeholder="Search anime, manga and more..."
           value={text}
           onChange={onChange}
+          id="search-bar"
         />
-        <input
+        {/* <input
           type="submit"
           value="Search"
           className="btn btn-block btn-dark"
-        />
+        /> */}
       </form>
-      {animes.length > 1 && (
-        <button
-          className="btn btn-block btn-primary"
-          onClick={() => dispatch({ type: CLEAR_ANIMES })}
-        >
-          Clear
-        </button>
-      )}
-    </div>
+    
   );
 };
 
