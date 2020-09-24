@@ -33,8 +33,15 @@ const CarouselAnime = () => {
 
   if (loading) return <Spinner />;
   return (
-    <div style={{ position: "relative", marginTop: "2rem" }}>
-      <h2>Anime - {season[0].toUpperCase() + season.substring(1)} {year}</h2>
+    <div
+      style={{
+        position: "relative",
+        marginTop: "2rem",
+      }}
+    >
+      <h2 style={{ borderBottom: "1px solid white" }}>
+        Anime - {season[0].toUpperCase() + season.substring(1)} {year}
+      </h2>
 
       <Carousel
         responsive={responsiveCarousel}
