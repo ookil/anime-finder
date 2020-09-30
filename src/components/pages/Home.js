@@ -1,14 +1,12 @@
 import React, { Fragment } from "react";
 import CarouselAnime from "../carousel/CarouselAnime";
-import TopAnimeItem from '../topAnimes/TopAnimeItem'
+import TopAnime from "../topAnimes/TopAnime";
 
 const Home = () => {
-  
-
   return (
     <Fragment>
       <CarouselAnime />
-      <TopAnimeItem />
+      <TopAnime />
     </Fragment>
   );
 };

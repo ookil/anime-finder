@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import AnimeContext from "../../context/animes/animeContext";
 import { searchAnimes } from "../../context/animes/actions";
 import { SEARCH_ANIMES, SET_LOADING } from "../../context/types";
 
 const Search = () => {
-  const { dispatch} = useContext(AnimeContext);
-
+  const { dispatch } = useContext(AnimeContext);
+  let history = useHistory();
   const [text, setText] = useState("");
 
   const onChange = (e) => setText(e.target.value);
@@ -19,9 +20,15 @@ const Search = () => {
     });
   };
 
+  const onKeyDown = (e) => {
+    if (e.key === "Enter") {
+      history.push("/results");
+    }
+  };
+
   return (
-    
-      <form onSubmit={onSubmit} className="form">
+    <>
+      <form onSubmit={onSubmit} onKeyDown={onKeyDown} className="form">
         <input
           type="text"
           name="text"
@@ -31,7 +38,7 @@ const Search = () => {
           id="search-bar"
         />
       </form>
-    
+    </>
   );
 };
 

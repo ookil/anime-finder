@@ -2,15 +2,15 @@ import React from "react";
 import {Link} from 'react-router-dom'
 
 const TopAnimeList = ({
-  top: { mal_id, rank, title, image_url, type, score },
+  anime: { mal_id, rank, title, image_url, type, score },
 }) => {
   return (
     <div className="list-item">
       <h3>{rank}</h3>
-      <div>
+      <div className="list-item--img">
         <img src={image_url} alt={title} />
       </div>
-      <div>
+      <div style={{width: "100%"}}>
         <div className="list-item--title">
           <Link to={`anime/${mal_id}`}>
             {title}
@@ -18,11 +18,11 @@ const TopAnimeList = ({
         </div>
         <div className='d-flex justify-content-between align-items-center'>
           <p className="small">
-            {type}, scored {score}
+            {type}, scored {score === 0 ? 'N/A' : score}
           </p>
-          <span>
+          {/* <span>
             <i className="fas fa-plus-circle"></i>
-          </span>
+          </span> */}
         </div>
       </div>
     </div>

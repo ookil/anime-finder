@@ -11,7 +11,7 @@ export const animeItems = [
   },
   {
     title: "Top Anime",
-    path: "/top-anime",
+    path: "/topanime",
     cName: "dropdown-link",
   },
 ];

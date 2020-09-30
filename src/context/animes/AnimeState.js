@@ -6,8 +6,7 @@ const AnimeState = (props) => {
   const initialState = {
     animes: [],
     anime: {},
-    seasonalAnime: [],
-    characters: [],
+    characters: null,
     loading: false,
   };
 
