@@ -5,12 +5,17 @@ import { useMediaQuery } from "react-responsive";
 import { MD, LG } from "../utilities/mediaQueries";
 
 const TopTable = ({ topList }) => {
+
+  const isTabletOrDesktop = useMediaQuery({
+    query: `(min-device-width: ${MD}px)`,
+  });
+
   return (
     <div>
       <div className="d-flex justift-content-between my-2">
         <h4 className="col col-rank">Rank</h4>
         <h4 className="col col-title">Title</h4>
-        <h4 className="col col-type">Type</h4>
+        {isTabletOrDesktop && <h4 className="col col-type">Type</h4>}
         <h4 className="col col-score">Score</h4>
       </div>
       {topList.map((anime) => (
@@ -23,6 +28,7 @@ const TopTable = ({ topList }) => {
 const TableRow = ({
   anime: { mal_id, rank, title, image_url, type, score },
 }) => {
+  
   const isTabletOrDesktop = useMediaQuery({
     query: `(min-device-width: ${MD}px)`,
   });
@@ -42,9 +48,11 @@ const TableRow = ({
           </Link>
         </div>
       </div>
-      <div className="col col-type">
-        <p>{type}</p>
-      </div>
+      {isTabletOrDesktop && (
+        <div className="col col-type">
+          <p>{type}</p>
+        </div>
+      )}
       <div className="col col-score">
         <p>{score === 0 ? "N/A" : score}</p>
       </div>
