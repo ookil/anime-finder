@@ -41,9 +41,9 @@ ul {
   max-width: 1250px;
   margin: 0 auto;
   overflow: hidden;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
 
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 768px) {
     width: 85%;
   }
 }

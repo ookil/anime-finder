@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./table.scss";
+import { useMediaQuery } from "react-responsive";
+import { MD, LG } from "../utilities/mediaQueries";
 
 const TopTable = ({ topList }) => {
   return (
@@ -21,6 +23,10 @@ const TopTable = ({ topList }) => {
 const TableRow = ({
   anime: { mal_id, rank, title, image_url, type, score },
 }) => {
+  const isTabletOrDesktop = useMediaQuery({
+    query: `(min-device-width: ${MD}px)`,
+  });
+
   return (
     <div className="d-flex align-items-center mb-2">
       <div className="col col-rank">
@@ -30,7 +36,7 @@ const TableRow = ({
         <div>
           <img src={image_url} alt={title} />
         </div>
-        <div style={{ textAlign: "left", color: '#04216a' }}>
+        <div style={{ textAlign: "left", color: "#04216a" }}>
           <Link to={`/anime/${mal_id}`}>
             <h4>{title}</h4>
           </Link>
