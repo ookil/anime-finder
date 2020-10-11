@@ -1,10 +1,10 @@
 import {
   GET_TOP_ANIME,
-  GET_TOP_ANIME_MOVIE,
   GET_TOP_MANGA,
   GET_TOP_MANHWA,
   GET_TOP_NOVEL,
-  SET_LOADING
+  SET_LOADING,
+  TOGGLE_TOP_ANIME,
 } from "../types";
 
 export default (state, action) => {
@@ -15,7 +15,13 @@ export default (state, action) => {
         topAnimeAll: action.payload.all,
         topAnimeAiring: action.payload.airing,
         topAnimeUpcoming: action.payload.upcoming,
+        topAnimeMovie: action.payload.movie,
         loading: false,
+      };
+    case TOGGLE_TOP_ANIME:
+      return {
+        ...state,
+        buttonID: action.payload,
       };
     case SET_LOADING:
       return {

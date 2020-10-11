@@ -65,13 +65,6 @@ const NavbarMenu = () => {
               />
             )}
           </li>
-
-          <li className="ml-4">
-            <Link to="/#" className="non-link">
-              Community
-            </Link>
-          </li>
-
           <li className="ml-4">
             <Link to="/help">Help</Link>
           </li>

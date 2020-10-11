@@ -11,30 +11,18 @@ export const getTopAnime = async () => {
 
   const upcoming = await jikan.get("/top/anime/1/upcoming");
 
+  const movie = await jikan.get("/top/anime/1/movie");
+
+
   return {
     all: all.data.top,
     airing: airing.data.top,
     upcoming: upcoming.data.top,
+    movie: movie.data.top
   };
 };
 
-/* export const getTop = async (type, subtype) => {
-  let res;
-  if (subtype === undefined) {
-    res = await jikan.get(`/top/${type}`);
-  } else {
-    res = await jikan.get(`/top/${type}/1/${subtype}`);
-  }
-  return res.data.top;
-}; */
 
-export const getTopAnimeAll = () => {};
-
-export const getTopAnimeAiring = () => {};
-
-export const getTopAnimeUpcoming = () => {};
-
-export const getTopAnimeMovie = () => {};
 
 export const getTopManga = () => {};
 export const getTopManhwa = () => {};

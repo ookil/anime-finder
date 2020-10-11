@@ -21,8 +21,6 @@ const Navbar = ({ title }) => {
 
   const handleMenu = () => setOpen(!isOpen);
 
-  const loggedIn = true;
-
   const isDesktopOrLaptop = useMediaQuery({
     query: `(min-device-width: ${LG}px)`,
   });
@@ -63,29 +61,13 @@ const Navbar = ({ title }) => {
           {isDesktopOrLaptop ? (
             <>
               <li>
-                <Link
-                  to={loggedIn ? "/profile" : "/login"}
-                  className="btn btn-white-rounded box-shadow"
-                >
-                  {loggedIn ? "Profile" : "Login"}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={loggedIn ? "/#" : "/signup"}
-                  className="btn btn-white-outline-rounded"
-                >
-                  {loggedIn ? "Log Out" : "Sign Up"}
+                <Link to="/about" className="btn btn-white-outline-rounded">
+                  About
                 </Link>
               </li>
             </>
           ) : (
             <>
-              <li>
-                <Link to="/profile">
-                  <i className="fas fa-user"></i>
-                </Link>
-              </li>
               <li className="ml-2" onClick={handleMenu}>
                 <i className={isOpen ? "fas fa-times" : "fas fa-bars"}></i>
                 {isOpen && (

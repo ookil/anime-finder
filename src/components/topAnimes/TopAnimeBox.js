@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import TopAnimeItem from "./TopAnimeItem";
 import TopContext from "../../context/tops/topContext";
 
-const TopAnime = () => {
+const TopAnimeBox = () => {
   const {
     topAnimeAll,
     topAnimeAiring,
@@ -27,4 +27,4 @@ const TopAnime = () => {
   );
 };
 
-export default TopAnime;
+export default TopAnimeBox;

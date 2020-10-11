@@ -12,7 +12,8 @@ const TopState = (props) => {
       topNovels: [],
       topManhwa: [],
       loading: false,
-      day: new Date().getDate()
+      day: new Date().getDate(),
+      buttonID: 'all'
   };
 
   const [state, dispatchTop] = useReducer(topReducer, initialState);

@@ -11,3 +11,4 @@ export const GET_TOP_NOVEL = "GET_TOP_NOVEL";
 export const GET_TOP_MANHWA = "GET_TOP_MANHWA";
 
 export const GET_SEASON = "GET_SEASON";
+export const TOGGLE_TOP_ANIME = "TOGGLE_TOP_ANIME";

@@ -31,18 +31,8 @@ export const mangaItems = [
 
 export const mobileItems = [
   {
-    title: "Profile",
-    path: "/profile",
-    cName: "dropdown-link",
-  },
-  {
-    title: "Anime List",
-    path: "/anime-list",
-    cName: "dropdown-link",
-  },
-  {
-    title: "Manga List",
-    path: "/manga-list",
+    title: "About",
+    path: "/about",
     cName: "dropdown-link",
   },
   {
@@ -55,8 +45,4 @@ export const mobileItems = [
     cName: "dropdown-separator",
   },
   ...mangaItems,
-  {
-    title: "Logout",
-    cName: "dropdown-separator",
-  }
-]
+];
