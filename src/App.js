@@ -22,6 +22,7 @@ function App() {
               <div className="background-wrapper">
                 <Navbar title="BLING BLING OTAKU" />
                 <div className="container">
+                  
                   <Switch>
                     <Route path="/topanime" component={TopAnime} />
                     <Route exact path="/about" component={About} />
