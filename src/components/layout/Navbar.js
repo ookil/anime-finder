@@ -70,10 +70,10 @@ const Navbar = ({ title }) => {
             <>
               <li className="ml-2" onClick={handleMenu}>
                 <i className={isOpen ? "fas fa-times" : "fas fa-bars"}></i>
-                {isOpen && (
+                {(
                   <Dropdown
                     navItems={mobileItems}
-                    classStyle={"mobile-menu--dropdown"}
+                    classStyle={isOpen ? "mobile-menu--dropdown active " : "mobile-menu--dropdown" }
                   />
                 )}
               </li>
@@ -81,7 +81,7 @@ const Navbar = ({ title }) => {
           )}
         </ul>
       </nav>
-      {!isOpen && <NavbarMenu />}
+      <NavbarMenu />
     </>
   );
 };

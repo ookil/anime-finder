@@ -253,7 +253,7 @@ ul {
   margin: 15px;
   overflow: hidden;
   position: relative;
-  box-shadow: 4px -3px 5px 0px #652750; 
+  box-shadow: 4px -3px 5px 0px #202020; 
 
   img {
     height: 100%;
@@ -446,12 +446,16 @@ ul {
   border: 2px solid #ffffff;
   border-radius: 10px;
   margin: 10px 0;
-  width: 300px;
+  width: 200px;
   background-image: url("./images/iconfinder_search_172546.png");
   background-position: 10px 0px;
   background-repeat: no-repeat;
   background-size: contain;
   padding-left: 40px;
+
+  @media screen and (min-width: 350px) {
+    width: 300px;
+  }
 }
 
 input[type="text"],
@@ -518,10 +522,26 @@ button {
 }
 
 .mobile-menu--dropdown {
+  text-align: center;
   width: 100%;
   top: 60px;
-  right: 0;
+  left: -100%;
+  transition: all 0.5s ease;
+
+  &.active {
+    background: $primary-color;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .dropdown-link {
+    padding: 20px 0;
+  }
 }
+
+
 
 .dropdown-link {
   display: block;

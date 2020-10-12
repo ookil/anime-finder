@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./table.scss";
 import { useMediaQuery } from "react-responsive";
-import { MD, LG } from "../utilities/mediaQueries";
+import { MD } from "../utilities/mediaQueries";
 
 const TopTable = ({ topList }) => {
 
@@ -32,6 +32,7 @@ const TableRow = ({
   const isTabletOrDesktop = useMediaQuery({
     query: `(min-device-width: ${MD}px)`,
   });
+
 
   return (
     <div className="d-flex align-items-center mb-2">
