@@ -35,29 +35,29 @@ const TableRow = ({
 
 
   return (
-    <div className="d-flex align-items-center mb-2">
-      <div className="col col-rank">
-        <h3>{rank}</h3>
-      </div>
-      <div className="d-flex align-items-center col col-title">
-        <div>
-          <img src={image_url} alt={title} />
+    <Link to={`/anime/${mal_id}`}>
+      <div className="d-flex align-items-center mb-2">
+        <div className="col col-rank">
+          <h3>{rank}</h3>
         </div>
-        <div style={{ textAlign: "left", color: "#04216a" }}>
-          <Link to={`/anime/${mal_id}`}>
+        <div className="d-flex align-items-center col col-title">
+          <div>
+            <img src={image_url} alt={title} />
+          </div>
+          <div style={{ textAlign: "left", color: "#04216a" }}>
             <h4>{title}</h4>
-          </Link>
+          </div>
+        </div>
+        {isTabletOrDesktop && (
+          <div className="col col-type">
+            <p>{type}</p>
+          </div>
+        )}
+        <div className="col col-score">
+          <p>{score === 0 ? "N/A" : score}</p>
         </div>
       </div>
-      {isTabletOrDesktop && (
-        <div className="col col-type">
-          <p>{type}</p>
-        </div>
-      )}
-      <div className="col col-score">
-        <p>{score === 0 ? "N/A" : score}</p>
-      </div>
-    </div>
+    </Link>
   );
 };
 

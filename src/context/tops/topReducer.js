@@ -1,8 +1,6 @@
 import {
   GET_TOP_ANIME,
   GET_TOP_MANGA,
-  GET_TOP_MANHWA,
-  GET_TOP_NOVEL,
   SET_LOADING,
   TOGGLE_TOP_ANIME,
 } from "../types";

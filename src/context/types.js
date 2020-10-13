@@ -5,10 +5,7 @@ export const CLEAR_ANIMES = "CLEAR_ANIMES";
 export const SET_LOADING = "SET_LOADING";
 
 export const GET_TOP_ANIME = "GET_TOP_ANIME";
-export const GET_TOP_ANIME_MOVIE = "GET_TOP_ANIME_MOVIE";
 export const GET_TOP_MANGA = "GET_TOP_MANGA";
-export const GET_TOP_NOVEL = "GET_TOP_NOVEL";
-export const GET_TOP_MANHWA = "GET_TOP_MANHWA";
 
 export const GET_SEASON = "GET_SEASON";
 export const TOGGLE_TOP_ANIME = "TOGGLE_TOP_ANIME";

@@ -5,7 +5,8 @@ import { TOGGLE_TOP_ANIME } from "../../context/types";
 import TopTable from "../topAnimes/TopTable";
 import Select from "react-select";
 import { useMediaQuery } from "react-responsive";
-import { MD } from "../utilities/mediaQueries";
+import { MD, SM } from "../utilities/mediaQueries";
+import TopGrid from "../topAnimes/TopGrid";
 
 const options = [
   { value: "", label: "All Anime" },
@@ -32,6 +33,10 @@ const TopAnime = ({ match }) => {
 
   const isTabletOrDesktop = useMediaQuery({
     query: `(min-device-width: ${MD}px)`,
+  });
+
+  const isSM = useMediaQuery({
+    query: `(max-device-width: ${SM}px)`,
   });
 
   const handleChange = (e) => {
@@ -103,7 +108,7 @@ const TopAnime = ({ match }) => {
             <Route
               exact
               path={`${match.url}`}
-              render={() => <TopTable topList={topAnimeAll} />}
+              render={() => isSM ? <TopGrid topList={topAnimeAll}/> : <TopTable topList={topAnimeAll} />}
             />
             <Route
               path={`${match.url}/airing`}

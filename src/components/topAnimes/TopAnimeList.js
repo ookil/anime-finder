@@ -20,9 +20,6 @@ const TopAnimeList = ({
           <p className="small">
             {type}, scored {score === 0 ? 'N/A' : score}
           </p>
-          {/* <span>
-            <i className="fas fa-plus-circle"></i>
-          </span> */}
         </div>
       </div>
     </div>
