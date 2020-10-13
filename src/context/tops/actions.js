@@ -28,16 +28,12 @@ export const getTopManga = async () => {
 
   const novels = await jikan.get('/top/manga/1/novels');
 
-  const manhwa = await jikan.get('/top/manga/1/manwha');
-
-  const manhua = await jikan.get('/top/manga/manhua');
+  const manhwa = await jikan.get('/top/manga/1/manhwa');
 
   return {
     all: all.data.top,
     manga: manga.data.top,
     novels: novels.data.top,
     manhwa: manhwa.data.top,
-    manhua: manhua.data.top,
   };
 };
-

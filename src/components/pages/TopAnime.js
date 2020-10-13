@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
-import { Switch, Route, Link, useHistory } from "react-router-dom";
-import TopContext from "../../context/tops/topContext";
-import { TOGGLE_TOP_ANIME } from "../../context/types";
-import TopTable from "../topAnimes/TopTable";
-import Select from "react-select";
-import { useMediaQuery } from "react-responsive";
-import { MD, SM } from "../utilities/mediaQueries";
-import TopGrid from "../topAnimes/TopGrid";
+import React, { useContext } from 'react';
+import { Switch, Route, Link, useHistory } from 'react-router-dom';
+import TopContext from '../../context/tops/topContext';
+import { TOGGLE_TOP_ANIME } from '../../context/types';
+import TopTable from '../topAnimes/TopTable';
+import Select from 'react-select';
+import { useMediaQuery } from 'react-responsive';
+import { MD, SM } from '../utilities/mediaQueries';
+import TopGrid from '../topAnimes/TopGrid';
 
 const options = [
-  { value: "", label: "All Anime" },
-  { value: "airing", label: "Top Airing Anime" },
-  { value: "upcoming", label: "Top Upcoming Anime" },
-  { value: "movies", label: "Top Movies" },
+  { value: '', label: 'All Anime' },
+  { value: 'airing', label: 'Top Airing Anime' },
+  { value: 'upcoming', label: 'Top Upcoming Anime' },
+  { value: 'movies', label: 'Top Movies' },
 ];
 
 const TopAnime = ({ match }) => {
@@ -40,44 +40,44 @@ const TopAnime = ({ match }) => {
   });
 
   const handleChange = (e) => {
-    if (e.value !== "") {
-      history.push(match.url + "/" + e.value);
+    if (e.value !== '') {
+      history.push(match.url + '/' + e.value);
     } else {
-      history.push(match.url)
+      history.push(match.url);
     }
     dispatchTop({ type: TOGGLE_TOP_ANIME, payload: e.value });
   };
 
   return (
     <>
-      <div className="sub-page--box">
+      <div className='sub-page--box'>
         {isTabletOrDesktop ? (
-          <div className="d-flex justify-content-around my-2">
+          <div className='d-flex justify-content-around my-2'>
             <h4
-              id="all"
+              id='all'
               onClick={toggleType}
-              className={buttonID === "all" ? "btn-active" : ""}
+              className={buttonID === 'all' ? 'btn-active' : ''}
             >
               <Link to={`${match.url}`}>All Anime</Link>
             </h4>
             <h4
-              id="airing"
+              id='airing'
               onClick={toggleType}
-              className={buttonID === "airing" ? "btn-active" : ""}
+              className={buttonID === 'airing' ? 'btn-active' : ''}
             >
               <Link to={`${match.url}/airing`}>Top Airing Anime</Link>
             </h4>
             <h4
-              id="upcoming"
+              id='upcoming'
               onClick={toggleType}
-              className={buttonID === "upcoming" ? "btn-active" : ""}
+              className={buttonID === 'upcoming' ? 'btn-active' : ''}
             >
               <Link to={`${match.url}/upcoming`}>Top Upcoming Anime</Link>
             </h4>
             <h4
-              id="movies"
+              id='movies'
               onClick={toggleType}
-              className={buttonID === "movies" ? "btn-active" : ""}
+              className={buttonID === 'movies' ? 'btn-active' : ''}
             >
               <Link to={`${match.url}/movies`}>Top Movies</Link>
             </h4>
@@ -87,20 +87,20 @@ const TopAnime = ({ match }) => {
         )}
         <div
           style={{
-            background: "#AFDEFF",
-            padding: "20px",
-            textAlign: "center",
-            marginTop: "30px",
+            background: '#AFDEFF',
+            padding: '20px',
+            textAlign: 'center',
+            marginTop: '30px',
           }}
         >
           <h3>
-            {buttonID === "airing"
-              ? "Top Airing Anime"
-              : buttonID === "upcoming"
-              ? "Top Upcoming Anime"
-              : buttonID == "movies"
-              ? "Top Movies"
-              : "All Anime"}
+            {buttonID === 'airing'
+              ? 'Top Airing Anime'
+              : buttonID === 'upcoming'
+              ? 'Top Upcoming Anime'
+              : buttonID == 'movies'
+              ? 'Top Movies'
+              : 'All Anime'}
           </h3>
         </div>
         <div>
@@ -108,19 +108,43 @@ const TopAnime = ({ match }) => {
             <Route
               exact
               path={`${match.url}`}
-              render={() => isSM ? <TopGrid topList={topAnimeAll}/> : <TopTable topList={topAnimeAll} />}
+              render={() =>
+                isSM ? (
+                  <TopGrid topList={topAnimeAll} />
+                ) : (
+                  <TopTable topList={topAnimeAll} />
+                )
+              }
             />
             <Route
               path={`${match.url}/airing`}
-              render={() => <TopTable topList={topAnimeAiring} />}
+              render={() =>
+                isSM ? (
+                  <TopGrid topList={topAnimeAiring} />
+                ) : (
+                  <TopTable topList={topAnimeAiring} />
+                )
+              }
             />
             <Route
               path={`${match.url}/upcoming`}
-              render={() => <TopTable topList={topAnimeUpcoming} />}
+              render={() =>
+                isSM ? (
+                  <TopGrid topList={topAnimeUpcoming} />
+                ) : (
+                  <TopTable topList={topAnimeUpcoming} />
+                )
+              }
             />
             <Route
               path={`${match.url}/movies`}
-              render={() => <TopTable topList={topAnimeMovie} />}
+              render={() =>
+                isSM ? (
+                  <TopGrid topList={topAnimeMovie} />
+                ) : (
+                  <TopTable topList={topAnimeMovie} />
+                )
+              }
             />
           </Switch>
         </div>

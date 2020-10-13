@@ -3,7 +3,7 @@ import {
   GET_TOP_MANGA,
   SET_LOADING,
   TOGGLE_TOP_ANIME,
-} from "../types";
+} from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -20,6 +20,14 @@ export default (state, action) => {
       return {
         ...state,
         buttonID: action.payload,
+      };
+    case GET_TOP_MANGA:
+      return {
+        ...state,
+        topMangaAll: action.payload.all,
+        topManga: action.payload.manga,
+        topNovels: action.payload.novels,
+        topManhwa: action.payload.manhwa,
       };
     case SET_LOADING:
       return {

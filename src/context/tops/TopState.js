@@ -8,6 +8,7 @@ const TopState = (props) => {
       topAnimeAiring: [],
       topAnimeUpcoming: [],
       topAnimeMovie: [],
+      topMangaAll: [],
       topManga: [],
       topNovels: [],
       topManhwa: [],
