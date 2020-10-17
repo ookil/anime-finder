@@ -98,7 +98,7 @@ const TopAnime = ({ match }) => {
               ? 'Top Airing Anime'
               : buttonID === 'upcoming'
               ? 'Top Upcoming Anime'
-              : buttonID == 'movies'
+              : buttonID === 'movies'
               ? 'Top Movies'
               : 'All Anime'}
           </h3>

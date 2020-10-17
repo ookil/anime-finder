@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
-import Animes from "../animes/Animes";
+import TopGrid from "../topAnimes/TopGrid";
 
-const Home = () => {
+const Results = () => {
   return (
     <Fragment>
-      <Animes />
+      {/* <TopGrid  /> */}
     </Fragment>
   );
 };
 
-export default Home;
+export default Results;

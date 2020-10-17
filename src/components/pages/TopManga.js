@@ -105,7 +105,7 @@ const TopManga = ({ match }) => {
               ? 'Top Manga'
               : buttonID === 'novels'
               ? 'Top Novels'
-              : buttonID == 'manhwa'
+              : buttonID === 'manhwa'
               ? 'Top Manhwa'
               : 'All Manga'}
           </h3>

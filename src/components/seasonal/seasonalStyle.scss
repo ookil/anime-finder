@@ -1,0 +1,111 @@
+@import '../utilities//variables.scss';
+
+@mixin d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.card-seasonal {
+  display: grid;
+  grid-template-rows: 1fr 0.5fr 0.5fr 240px 0.5fr;
+  background-color: #1e1d1d;
+  padding: 15px;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+
+  .title-se,
+  .score-se,
+  .info,
+  .genres {
+    @include d-flex-center();
+    flex-wrap: wrap;
+
+    p {
+      margin: 0 0.6em;
+    }
+  }
+
+  .genres {
+    font-size: 0.7em;
+
+    p {
+      color: #787878;
+    }
+  }
+
+  .title-se {
+    color: #deac3c;
+  }
+
+  .date {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 0.85em;
+  }
+
+  .main-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    height: 240px;
+
+    img {
+      max-height: 220px;
+      max-width: 140px;
+
+      @media screen and (min-width: 1480px) {
+        max-height: 240px;
+        max-width: 170px;
+      }
+    }
+
+    p {
+      font-size: 0.8em;
+    }
+
+    .synopsis {
+      padding-right: 10px;
+      margin-bottom: 5px;
+      overflow-y: scroll;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        width: 0;
+        background: 0 0;
+      }
+    }
+  }
+}
+
+.cards {
+  display: grid;
+  gap: 1.5rem;
+  justify-content: center;
+  grid-template-columns: repeat(1, 350px);
+
+  @media screen and (min-width: 975px) {
+    grid-template-columns: repeat(2, 400px);
+  }
+
+  @media screen and (min-width: 1480px) {
+    grid-template-columns: repeat(3, 400px);
+  }
+}
+
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  background: $primary-color;
+  padding: 1rem;
+  margin: 20px 0;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+}
