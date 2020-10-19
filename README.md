@@ -1,6 +1,23 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Anime Finder
+Simple app that allows to browse through anime & manga made with [React.js](https://reactjs.org/)
 
-## Anime Finder
+This app uses [Jikan API](https://jikan.docs.apiary.io/).
 
-This app uses [Jikan API](https://jikan.docs.apiary.io/) for browsing anime.
+## Live URL
+[Demo](https://bling-bling-anime.netlify.app/)
 
+## Libraries
+* react-modal-video
+* react-multi-carousel
+* react-responsive
+* react-select
+
+## Scripts
+Install node modules
+
+**npm install**
+In the project directory, you can run:
+
+**npm start**
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.

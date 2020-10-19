@@ -65,7 +65,7 @@ const SeasonalAnime = () => {
         </div>
       </div>
       {isXS ? (
-        <TopGrid topList={query.length ? query : seasonalAnime} />
+        <TopGrid topList={query.length ? query : seasonalAnime} typeLink="anime"/>
       ) : (
         <div className='cards'>
           {query.length

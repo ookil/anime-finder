@@ -4,10 +4,13 @@ import animeReducer from "./animeReducer";
 
 const AnimeState = (props) => {
   const initialState = {
-    animes: [],
+    animeResult: [],
+    mangaResult: [],
     anime: {},
+    manga: {},
     characters: null,
     loading: false,
+    query: null
   };
 
   const [state, dispatch] = useReducer(animeReducer, initialState);

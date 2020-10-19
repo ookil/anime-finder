@@ -8,7 +8,9 @@ const TopAnimeList = ({
     <div className="list-item">
       <h3>{rank}</h3>
       <div className="list-item--img">
-        <img src={image_url} alt={title} />
+        <Link to={`anime/${mal_id}`}>
+          <img src={image_url} alt={title} />
+        </Link>
       </div>
       <div style={{width: "100%"}}>
         <div className="list-item--title">

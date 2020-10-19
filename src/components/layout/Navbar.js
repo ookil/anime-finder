@@ -58,15 +58,7 @@ const Navbar = ({ title }) => {
           <Link to="/">{title}</Link>
         </h1>
         <ul>
-          {isDesktopOrLaptop ? (
-            <>
-              <li>
-                <Link to="/about" className="btn btn-white-outline-rounded">
-                  About
-                </Link>
-              </li>
-            </>
-          ) : (
+          {!isDesktopOrLaptop && (
             <>
               <li className="ml-2" onClick={handleMenu}>
                 <i className={isOpen ? "fas fa-times" : "fas fa-bars"}></i>

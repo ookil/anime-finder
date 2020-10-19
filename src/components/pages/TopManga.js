@@ -117,9 +117,9 @@ const TopManga = ({ match }) => {
               path={`${match.url}`}
               render={() =>
                 isSM ? (
-                  <TopGrid topList={topMangaAll} />
+                  <TopGrid topList={topMangaAll} typeLink="manga"/>
                 ) : (
-                  <TopTable topList={topMangaAll} />
+                  <TopTable topList={topMangaAll} typeLink="manga"/>
                 )
               }
             />
@@ -127,9 +127,9 @@ const TopManga = ({ match }) => {
               path={`${match.url}/manga`}
               render={() =>
                 isSM ? (
-                  <TopGrid topList={topManga} />
+                  <TopGrid topList={topManga} typeLink="manga"/>
                 ) : (
-                  <TopTable topList={topManga} />
+                  <TopTable topList={topManga} typeLink="manga"/>
                 )
               }
             />
@@ -137,9 +137,9 @@ const TopManga = ({ match }) => {
               path={`${match.url}/novels`}
               render={() =>
                 isSM ? (
-                  <TopGrid topList={topNovels} />
+                  <TopGrid topList={topNovels} typeLink="manga"/>
                 ) : (
-                  <TopTable topList={topNovels} />
+                  <TopTable topList={topNovels} typeLink="manga"/>
                 )
               }
             />
@@ -147,9 +147,9 @@ const TopManga = ({ match }) => {
               path={`${match.url}/manhwa`}
               render={() =>
                 isSM ? (
-                  <TopGrid topList={topManhwa} />
+                  <TopGrid topList={topManhwa} typeLink="manga"/>
                 ) : (
-                  <TopTable topList={topManhwa} />
+                  <TopTable topList={topManhwa} typeLink="manga"/>
                 )
               }
             />

@@ -66,7 +66,7 @@ const NavbarMenu = () => {
             )}
           </li>
           <li className="ml-4">
-            <Link to="/help">Help</Link>
+            <Link to="/about">About</Link>
           </li>
         </ul>
       </MediaQuery>

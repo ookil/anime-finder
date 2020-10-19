@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import AnimeContext from "../../context/animes/animeContext";
-import { searchAnimes } from "../../context/animes/actions";
-import { SEARCH_ANIMES, SET_LOADING } from "../../context/types";
+import { search } from "../../context/animes/actions";
+import { SEARCH_ANIME_AND_MANGA, SET_LOADING } from "../../context/types";
 
 const Search = () => {
   const { dispatch } = useContext(AnimeContext);
@@ -14,8 +14,8 @@ const Search = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: SET_LOADING });
-    searchAnimes(text).then((animes) => {
-      dispatch({ type: SEARCH_ANIMES, payload: animes });
+    search(text).then((res) => {
+      dispatch({ type: SEARCH_ANIME_AND_MANGA, payload: res });
       setText("");
     });
   };

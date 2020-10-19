@@ -194,7 +194,7 @@ ul {
 }
 
 .ml-auto {
-  margin-left: auto;
+  margin: 0 auto;
 }
 
 .ml-1 {
@@ -301,7 +301,8 @@ ul {
   &:hover {
     /* box-shadow: 4px -3px 5px 0px rgba(255, 255, 255, 0.6); */
     box-shadow: 0 3px 5px -1px rgba(255, 255, 255, 0.2),
-    0 6px 10px 0 rgba(255, 255, 255, 0.14), 0 1px 18px 0 rgba(255, 255, 255, 0.12);
+      0 6px 10px 0 rgba(255, 255, 255, 0.14),
+      0 1px 18px 0 rgba(255, 255, 255, 0.12);
   }
 }
 
@@ -525,7 +526,10 @@ button {
 
 .nav-menu li {
   color: #fff;
-  padding: 0.45rem;
+  a {
+    display: block;
+    padding: 0.45rem;
+  }
 }
 
 .dropdown-menu {

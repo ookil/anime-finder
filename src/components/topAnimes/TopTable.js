@@ -4,7 +4,7 @@ import "./table.scss";
 import { useMediaQuery } from "react-responsive";
 import { MD } from "../utilities/mediaQueries";
 
-const TopTable = ({ topList }) => {
+const TopTable = ({ topList, typeLink }) => {
 
   const isTabletOrDesktop = useMediaQuery({
     query: `(min-device-width: ${MD}px)`,
@@ -19,13 +19,13 @@ const TopTable = ({ topList }) => {
         <h4 className="col col-score">Score</h4>
       </div>
       {topList.map((anime) => (
-        <TableRow anime={anime} key={anime.mal_id} />
+        <TableRow anime={anime} key={anime.mal_id} typeLink={typeLink}/>
       ))}
     </div>
   );
 };
 
-const TableRow = ({
+const TableRow = ({ typeLink,
   anime: { mal_id, rank, title, image_url, type, score },
 }) => {
   
@@ -35,7 +35,7 @@ const TableRow = ({
 
 
   return (
-    <Link to={`/anime/${mal_id}`}>
+    <Link to={`/${typeLink}/${mal_id}`}>
       <div className="d-flex align-items-center mb-2">
         <div className="col col-rank">
           <h3>{rank}</h3>

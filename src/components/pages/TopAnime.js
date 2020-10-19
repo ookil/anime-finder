@@ -110,9 +110,9 @@ const TopAnime = ({ match }) => {
               path={`${match.url}`}
               render={() =>
                 isSM ? (
-                  <TopGrid topList={topAnimeAll} />
+                  <TopGrid topList={topAnimeAll} typeLink="anime"/>
                 ) : (
-                  <TopTable topList={topAnimeAll} />
+                  <TopTable topList={topAnimeAll} typeLink="anime"/>
                 )
               }
             />
@@ -120,9 +120,9 @@ const TopAnime = ({ match }) => {
               path={`${match.url}/airing`}
               render={() =>
                 isSM ? (
-                  <TopGrid topList={topAnimeAiring} />
+                  <TopGrid topList={topAnimeAiring} typeLink="anime"/>
                 ) : (
-                  <TopTable topList={topAnimeAiring} />
+                  <TopTable topList={topAnimeAiring} typeLink="anime"/>
                 )
               }
             />
@@ -130,9 +130,9 @@ const TopAnime = ({ match }) => {
               path={`${match.url}/upcoming`}
               render={() =>
                 isSM ? (
-                  <TopGrid topList={topAnimeUpcoming} />
+                  <TopGrid topList={topAnimeUpcoming} typeLink="anime"/>
                 ) : (
-                  <TopTable topList={topAnimeUpcoming} />
+                  <TopTable topList={topAnimeUpcoming} typeLink="anime"/>
                 )
               }
             />
@@ -140,9 +140,9 @@ const TopAnime = ({ match }) => {
               path={`${match.url}/movies`}
               render={() =>
                 isSM ? (
-                  <TopGrid topList={topAnimeMovie} />
+                  <TopGrid topList={topAnimeMovie} typeLink="anime"/>
                 ) : (
-                  <TopTable topList={topAnimeMovie} />
+                  <TopTable topList={topAnimeMovie} typeLink="anime"/>
                 )
               }
             />

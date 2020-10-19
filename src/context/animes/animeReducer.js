@@ -1,9 +1,10 @@
 import {
-  SEARCH_ANIMES,
+  SEARCH_ANIME_AND_MANGA,
   GET_ANIME_AND_CHARACTERS,
+  GET_MANGA_AND_CHARACTERS,
   CLEAR_ANIMES,
   SET_LOADING,
-} from "../types";
+} from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -11,7 +12,7 @@ export default (state, action) => {
       return {
         ...state,
         loading: true,
-      }; 
+      };
     case GET_ANIME_AND_CHARACTERS:
       return {
         ...state,
@@ -19,10 +20,19 @@ export default (state, action) => {
         characters: action.payload.characters,
         loading: false,
       };
-    case SEARCH_ANIMES:
+      case GET_MANGA_AND_CHARACTERS:
       return {
         ...state,
-        animes: action.payload,
+        manga: action.payload.manga,
+        characters: action.payload.characters,
+        loading: false,
+      };
+    case SEARCH_ANIME_AND_MANGA:
+      return {
+        ...state,
+        animeResult: action.payload.animeResult,
+        mangaResult: action.payload.mangaResult,
+        query: action.payload.query,
         loading: false,
       };
     case CLEAR_ANIMES:

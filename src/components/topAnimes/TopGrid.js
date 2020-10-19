@@ -2,19 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './TopGrid.scss';
 
-const TopGrid = ({ topList }) => {
+const TopGrid = ({ topList, typeLink }) => {
   return (
     <div className='d-flex flex-wrap justify-content-center mt-2'>
       {topList.map((anime) => (
-        <Card anime={anime} key={anime.mal_id} />
+        <Card anime={anime} key={anime.mal_id} typeLink={typeLink} />
       ))}
     </div>
   );
 };
 
-const Card = ({ anime: { mal_id, title, image_url, type, score } }) => {
+const Card = ({
+  typeLink,
+  anime: { mal_id, title, image_url, type, score },
+}) => {
   return (
-    <Link to={`/anime/${mal_id}`}>
+    <Link to={`/${typeLink}/${mal_id}`}>
       <div
         style={{
           margin: '0 5px',

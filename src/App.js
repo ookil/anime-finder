@@ -9,10 +9,13 @@ import TopManga from "./components/pages/TopManga";
 
 import About from "./components/pages/About";
 import Anime from "./components/animes/Anime";
+import Manga from "./components/manga/Manga";
 import AnimeState from "./context/animes/AnimeState";
 import TopState from "./context/tops/TopState";
 import SeasonalState from "./context/seasonal/SeasonalState";
 import SeasonalAnime from "./components/pages/SeasonalAnime";
+import SearchAnime from "./components/pages/SearchAnime";
+import SearchManga from "./components/pages/SearchManga";
 
 function App() {
   return (
@@ -31,7 +34,10 @@ function App() {
                     <Route exact path="/seasonal-anime" component={SeasonalAnime} />
                     <Route exact path="/about" component={About} />
                     <Route exact path="/results" component={Results} />
+                    <Route exact path="/search-anime" component={SearchAnime} />
+                    <Route exact path="/search-manga" component={SearchManga} />
                     <Route exact path="/anime/:mal_id" component={Anime} />
+                    <Route exact path="/manga/:mal_id" component={Manga} />
                     <Route exact path="/" component={Home} />
                   </Switch>
                 </div>
