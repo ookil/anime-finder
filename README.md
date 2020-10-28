@@ -4,7 +4,7 @@ Simple app that allows to browse through anime & manga made with [React.js](http
 This app uses [Jikan API](https://jikan.docs.apiary.io/).
 
 ## Live URL
-[Demo](https://bling-bling-anime.netlify.app/)
+[Demo](https://bling-bling-otaku.netlify.app/)
 
 ## Libraries
 * react-modal-video
